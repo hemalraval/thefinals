@@ -40,3 +40,23 @@ function signupjs(){
 }
 
 // LOGIN SECTION END
+
+
+//DAYS CHANGE START
+$(".days_change").bind('keyup mouseup', function () {
+
+  $aa = $('.carprice_ptag').html();
+  $bb = $('.days_change').val();
+  console.log($aa*$bb);
+
+  var result = $aa*$bb;
+
+  var gst = 5;
+  var provincetax = 13;
+  var total_tax = 13+5;
+
+  var final_result = result*0.18;
+  console.log(result+final_result);
+  $('.total_amount').html('$'+(result+final_result));
+});
+//DAYS CHANGE END

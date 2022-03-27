@@ -8,8 +8,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Car Rent</title>
     <link rel="stylesheet" href="css/style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
@@ -18,7 +20,7 @@
 <body>
     <section class="header">
         <nav>
-            <a href="index.html" class="logo">Car
+            <a href="index.php" class="logo">Car
                 <i class="fas fa-car-side"></i>Rent
             </a>
             <div class="nav-links" id="navLinks">
@@ -42,7 +44,7 @@
             <p>Rent a Car with us and Drive Happy
                 <br> Ride with us to your destination
             </p>
-            <a href="booking.html" class="hero_btn">SEE OUR CARS</a>
+            <a href="booking.php" class="hero_btn">SEE OUR CARS</a>
             <br>
 
             <?php
