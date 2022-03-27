@@ -1,3 +1,23 @@
+<?php
+    session_start();
+
+    require('mysqli_connect.php');
+    error_reporting(0);
+
+    // $sql = "SELECT * FROM cars";
+    // $result = $conn->query($sql);
+
+    // if ($result->num_rows > 0) {
+    //     while($row = $result->fetch_assoc()) {
+    //         echo "Carname: " . $row["carname"]. " - CarYear: " . $row["caryear"]. " " . $row["carimage"]. "<br>";
+    //     }
+    // }
+    // else{
+    //     echo "No car found";
+    // }
+    // mysqli_close($conn);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car rent - About us</title>
+    <title>Car rent - Book Here</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet"
@@ -13,7 +33,7 @@
 </head>
 
 <body>
-    <section class="Sub-header">
+    <section class="Sub-header faq_header">
         <nav>
             <a href="index.html" class="logo">Car
                 <i class="fas fa-car-side"></i>Rent
@@ -32,25 +52,48 @@
             <i class="fa fa-bars" onclick="showMenu()"></i>
             <!-- reposnive bar open and close -->
         </nav>
-        <h1>About Us</h1>
+        <h1>Booking Area</h1>
     </section>
 
-    <!-- About Us Section Start -->
-
-    <section class="about-us">
-        <div class="row">
-            <div class="about-col">
-                <h1>Engage yourself in unforgottable journey</h1>
-                <p>CarRent gives its customers a variety of customizable tariff options in addition to a variety of automobiles to pick from. Choose a package based on your needs to get the most out of each reservation. The CarRent commute is the appropriate option for you if you need a vehicle to get to work or college. Travel alone or carpool with your pals to save the most money on your rental vehicle.</p>
-                <a href="booking.html" class="hero_btn btn">EXPLORE NOW</a>
-            </div>
-            <div class="about-col">
-                <img src="img/abouttext.jpg" alt="About us page image">
-            </div>
+    <!-- Booking Section Start -->
+    <section class="facilities">
+        <div class="PageBlock">
+            <!-- <div class="verticalLine"></div>
+            <div class="Clear"></div> -->
         </div>
-    </section>
+        <h1>Absolutely in love with our new wheels.</h1>
+        <p>Explore some of our brand new arrivals</p>
 
-    <!-- About Us Section end -->
+        <div class='booking_img' style='max-width: 960px;'>
+        <?php
+            $sql = "SELECT * FROM cars";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                echo $row;
+                while($row = $result->fetch_assoc()) {
+                    echo "
+                            <a href=''>
+                                <img src='./".$row["carimage"]."' alt='Car images' class='cars_db' style='display: inline-block;
+                                max-width: 98%;
+                                height: auto;
+                                width: 50%;
+                                margin: 1%;'>
+                                <h3 style='margin-top:-15px;'>".$row['carname']."</h3>
+                                <h6 style='margin-bottom:15px;'>Per day $".$row['carpriceperday']."</h6>
+                            </a>
+                        ";
+                }
+            }
+            else{
+                echo "No car found";
+            }
+            mysqli_close($conn);
+        ?>
+        </div>
+       
+    </section>
+    <!-- Booking Section End -->
 
     <!-- Footer Section Start -->
     <section class="footer">

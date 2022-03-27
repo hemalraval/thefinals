@@ -28,3 +28,15 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 // FAQ Section end
+
+
+// LOGIN SECTION START
+function loginjs(){
+  document.getElementById('id02').style.display='block';
+}
+
+function signupjs(){
+  document.getElementById('id01').style.display='block';
+}
+
+// LOGIN SECTION END
