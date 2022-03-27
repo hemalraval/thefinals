@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +25,8 @@
                 <!-- Reposnive bar open and close aas -->
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="booking.php">Booking</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="faqs.html">FAQs</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -40,6 +43,18 @@
                 <br> Ride with us to your destination
             </p>
             <a href="booking.html" class="hero_btn">SEE OUR CARS</a>
+            <br>
+
+            <?php
+                if (isset($_SESSION['login'])) {
+                    $name = substr($_SESSION['login'], 0, 5); // take hemal from hemal@gmail.com
+                    echo '<p class="user_name_login_orange">Welcome back '. $name . '..</p>';
+                } else {
+                    echo '<a href="#" class="hero_btn loginbtn" onclick="loginjs();">LOGIN</a><br>
+                    <a href="#" class="hero_btn signbtn" onclick="signupjs();">SIGN UP</a>';
+                }
+            ?>
+
         </div>
     </section>
 
@@ -85,19 +100,16 @@
             <div class="facilities-col">
                 <img src="img/home1.jpg" alt="">
                 <h3>BMW</h3>
-                <!-- <p>Luxurious car. -->
                 </p>
             </div>
             <div class="facilities-col">
                 <img src="img/home2.jpg" alt="">
                 <h3>Honda Civic 2020</h3>
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam. -->
                 </p>
             </div>
             <div class="facilities-col">
                 <img src="img/home3.jpg" alt="">
                 <h3>Range Rover</h3>
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam. -->
                 </p>
             </div>
         </div>
@@ -164,6 +176,61 @@
         <p>Copyright © 2022 <a href="index.html">Car Rent</a>. All Rights Reserved</p>
     </section>
     <!-- Footer Section End -->
+
+    
+
+    <!-- --------------------------------SIGNUP START------------------------------------------- -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close close_signup" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/action_page.php">
+          <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+      
+            <label for="mobile"><b>Mobile</b></label>
+            <input type="text" placeholder="Enter Mobile" name="mobile" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+      
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      
+            <div class="clearfix">
+              <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+              <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- --------------------------------SIGNUP END------------------------------------------- -->
+
+
+      <!-- --------------------------------LOGIN START------------------------------------------- -->
+      <div id="id02" class="modal">
+  
+        <form class="modal-content animate" action="logincheck.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+          </div>
+      
+          <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Enter Username" name="login_email" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="login_pass" required>
+              
+            <button type="submit" name="login_btn">Login</button>
+          </div>
+      
+        </form>
+      </div>
+      <!-- --------------------------------LOGIN END------------------------------------------- -->
+
+
     <script src="js/script.js"></script>
 </body>
 
