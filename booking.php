@@ -35,7 +35,7 @@
 <body>
     <section class="Sub-header faq_header">
         <nav>
-            <a href="index.html" class="logo">Car
+            <a href="index.php" class="logo">Car
                 <i class="fas fa-car-side"></i>Rent
             </a>
             <div class="nav-links" id="navLinks">
@@ -73,7 +73,7 @@
                 echo $row;
                 while($row = $result->fetch_assoc()) {
                     echo "
-                            <a href=''>
+                            <a href='checkout.php?carid=".$row["carid"]."'>
                                 <img src='./".$row["carimage"]."' alt='Car images' class='cars_db' style='display: inline-block;
                                 max-width: 98%;
                                 height: auto;

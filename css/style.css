@@ -127,6 +127,18 @@ nav .fab {
     text-decoration: none;
 }
 
+.book_btn {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .hero_btn:hover {
     border: 1px solid #24f8c7;
     background: #24f8c7;
