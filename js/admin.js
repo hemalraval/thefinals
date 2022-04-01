@@ -1,0 +1,3 @@
+function adminloginjs(){
+  // alert("casascas");
+}
