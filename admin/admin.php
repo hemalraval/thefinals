@@ -51,10 +51,10 @@ error_reporting(0);
         <div class="car">
             <form action="insertcar.php" method="post">
                 <h2>Enter New Car</h2>
-                <input type="text" placeholder="Enter Car Name" name="car_name">
-                <input type="text" placeholder="Enter Car Model Year" name="car_year">
-                <input type="text" placeholder="Enter Car Image URL"  name="car_url">
-                <input type="text" placeholder="Enter Car Price" name="car_price">
+                <input type="text" placeholder="Enter Car Name" name="car_name" required>
+                <input type="text" placeholder="Enter Car Model Year" name="car_year" required>
+                <input type="text" placeholder="Enter Car Image URL"  name="car_url" required>
+                <input type="text" placeholder="Enter Car Price" name="car_price" required>
                 <button type="submit">INSERT</button>
             </form>
         </div>
@@ -100,7 +100,7 @@ error_reporting(0);
                         <td>".$row["carimage"]."</td>
                         <td>".$row["carpriceperday"]."</td>
                         <td>EDIT</td>
-                        <td>DELETE</td>
+                        <td><a href='deletecar.php?cardeleteid=".$row["carid"]."'>DELETE</a></td>
                     </tr>
                      ";
             }
