@@ -45,79 +45,36 @@ error_reporting(0);
         </nav>
     </section>
 
-    <!-- Admin Dashboard INSERT Start -->
+    <!-- Admin Dashboard UPDATE Start -->
 
     <div class="containercar">
         <div class="car">
-            <form action="insertcar.php" method="post">
-                <h2>Enter New Car</h2>
-                <input type="text" placeholder="Enter Car Name" name="car_name" required>
-                <input type="text" placeholder="Enter Car Model Year" name="car_year" required>
-                <input type="text" placeholder="Enter Car Image URL"  name="car_url" required>
-                <input type="text" placeholder="Enter Car Price" name="car_price" required>
-                <button type="submit">INSERT</button>
+            <form action="updatecar.php" method="post">
+                <h2>Update Car</h2>
+
+                <?php
+                    $getcarupdateid = $_REQUEST['carupdateid'];
+                    // echo $getcarupdateid;
+
+                    $sql = "SELECT * FROM cars WHERE carid= '$getcarupdateid' ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<input type='text' placeholder='Update Car Name' name='car_name' required value=".$row["carid"].">
+                            <input type='text' placeholder='Update Car Model Year' name='car_year' required value=".$row["caryear"].">
+                            <input type='text' placeholder='Update Car Image URL'  name='car_url' required value=".$row["carimage"].">
+                            <input type='text' placeholder='Update Car Price' name='car_price' required value=".$row["carpriceperday"].">
+                            <button type='submit'>UPDATE</button>";
+                        }
+                    }
+                    
+                ?>
             </form>
         </div>
     </div>
 
-    <div class="PageBlock" style='margin-top: 25px !important;'>
-        <div class="verticalLine"></div>
-        <div class="Clear"></div>
-    </div>
-
-    <!-- Admin Dashboard INSERT END -->
-
-
-    <!-- Admin Dashboard Section Start -->
-
-    <?php
-        $sql = "SELECT * FROM cars";
-        $result = $conn->query($sql);
-
-        echo "
-            <table class='table table-condensed'>
-                <thead>
-                <tr>
-                    <th>Car ID</th>
-                    <th>Car Name</th>
-                    <th>Car Year</th>
-                    <th>Car Image</th>
-                    <th>Car Price</th>
-                    <th>MODIFY</th>
-                    <th>DELETE</th>
-                </tr>
-                </thead>
-                <tbody>";
-        if ($result->num_rows > 0) {
-            echo $row;
-            while($row = $result->fetch_assoc()) {
-                echo "
-                    
-                    <tr>
-                        <td>".$row["carid"]."</td>
-                        <td>".$row["carname"]."</td>
-                        <td>".$row["caryear"]."</td>
-                        <td>".$row["carimage"]."</td>
-                        <td>".$row["carpriceperday"]."</td>
-                        <td><a href='updatecar.php?carupdateid=".$row["carid"]."'>UPDATE</a></td>
-                        <td><a href='deletecar.php?cardeleteid=".$row["carid"]."'>DELETE</a></td>
-                    </tr>
-                     ";
-            }
-            echo "</tbody>
-            </table>";
-        }
-        else{
-            echo "No car found";
-        }
-        mysqli_close($conn);
-    ?>
-
-    <!-- ===================================================================== -->
-    
-  
-
-    <!-- Admin Dashboard Section Ends -->
+    <!-- Admin Dashboard UPDATE End -->
 
     <!-- Footer Section Start -->
     <section class="footer">
