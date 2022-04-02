@@ -184,19 +184,23 @@
     <!-- --------------------------------SIGNUP START------------------------------------------- -->
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close close_signup" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/action_page.php">
+        <form class="modal-content" action="usersignup.php" method="post">
           <div class="container">
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="email" placeholder="Enter Email" name="signupemail" required>
       
             <label for="mobile"><b>Mobile</b></label>
-            <input type="text" placeholder="Enter Mobile" name="mobile" required>
+            <!-- <input type="mobile" placeholder="Enter Mobile" name="signupmobile" required> -->
+
+            <input type="tel" id="phone" name="signupmobile" placeholder="Enter 10 digits number" max="10" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <!-- <input type="password" placeholder="Enter Password" name="signuppsw" required> -->
+
+            <input type="tel" id="passphone" name="signuppsw" placeholder="Enter 4 digits PIN Ex. 1234" pattern="[0-9]{4}" required>
       
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       
@@ -220,7 +224,7 @@
       
           <div class="container">
             <label for="uname"><b>Email</b></label>
-            <input type="text" placeholder="Enter Username" name="login_email" required>
+            <input type="email" placeholder="Enter Email" name="login_email" required>
       
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="login_pass" required>

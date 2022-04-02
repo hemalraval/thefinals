@@ -1,6 +1,7 @@
 <?php
 require('mysqli_connect.php');
 error_reporting(0);
+
 ?>
 
 <!DOCTYPE html>
@@ -49,26 +50,30 @@ error_reporting(0);
 
     <div class="containercar">
         <div class="car">
-            <form action="updatecar.php" method="post">
+            <form action="updatelogic.php" method="post">
                 <h2>Update Car</h2>
 
                 <?php
                     $getcarupdateid = $_REQUEST['carupdateid'];
                     // echo $getcarupdateid;
 
-                    $sql = "SELECT * FROM cars WHERE carid= '$getcarupdateid' ";
+                    $sql = " SELECT * FROM cars WHERE carid= '$getcarupdateid' ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<input type='text' placeholder='Update Car Name' name='car_name' required value=".$row["carid"].">
-                            <input type='text' placeholder='Update Car Model Year' name='car_year' required value=".$row["caryear"].">
-                            <input type='text' placeholder='Update Car Image URL'  name='car_url' required value=".$row["carimage"].">
-                            <input type='text' placeholder='Update Car Price' name='car_price' required value=".$row["carpriceperday"].">
+
+                            $aaa =  $row["carname"];
+
+                            echo "<input type='text' placeholder='Car ID' name='car_id' required value=".$row["carid"]." >
+                            <input type='hidden' name='car_id' required value=".$row["carid"]." >
+                            <input type='text' placeholder='Car Name' name='car_name' required value='".$row['carname']."' style='background:white;'>
+                            <input type='text' placeholder='Update Car Model Year' name='car_year' required value=".$row["caryear"]." style='background:white;'>
+                            <input type='text' placeholder='Update Car Image URL'  name='car_url' required value=".$row["carimage"]." style='background:white;'>
+                            <input type='text' placeholder='Update Car Price' name='car_price' required value=".$row["carpriceperday"]." style='background:white;'>
                             <button type='submit'>UPDATE</button>";
                         }
                     }
-                    
                 ?>
             </form>
         </div>

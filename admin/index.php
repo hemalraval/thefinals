@@ -42,7 +42,7 @@
             <form action="adminlogincheck.php" method="post">
                 <h2>ADMIN LOGIN</h2>
                 <input type="text" placeholder="Enter Username" name="adminusername" required>
-                <input type="text" placeholder="Enter Password" name="adminpassword" required>
+                <input type="password" placeholder="Enter Password" name="adminpassword" required>
                 <button type="submit" name="adminlogin" onclick="adminloginjs();">ADMIN LOGIN</button>
             </form>
         </div>
